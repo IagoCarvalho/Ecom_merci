@@ -1,0 +1,12 @@
+[run]
+source = ecom_merci
+omit =
+    ecom_merci/wsgi.py
+    manage.py
+    setup.py
+    test_*.py
+    ipython_log.py*
+    **/migrations/*.py
+
+[report]
+ignore_errors = False

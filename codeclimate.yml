@@ -1,0 +1,21 @@
+engines:
+  eslint:
+    enabled: false
+  csslint:
+    enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - python
+  fixme:
+    enabled: true
+  radon:
+    enabled: true
+ratings:
+  paths:
+  - "**.py"
+exclude_paths:
+- /**/migrations/
+- /**/relatorios/
+- /**/templates/*

@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=4c57d5c5f7464e24930b83e207530139c92711645c8c858e979528ced5ebb013
 language: python
 
 python:
@@ -11,6 +14,9 @@ install:
   - pip install -r requirements/test-requirements.txt
 
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - cp ecom_merci/.env_test ecom_merci/.env
   - ./check_migrations.sh
   - flake8 --exclude='ipython_log.py*,migrations,templates, manage.py' .
@@ -20,6 +26,9 @@ before_script:
 script:
   - ./manage.py migrate
   - py.test --create-db
+
+after_script:
+    - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 # addons:
 #     hosts:
