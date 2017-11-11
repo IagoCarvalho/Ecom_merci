@@ -4,7 +4,6 @@ python:
   - "3.5"
 
 services:
-  # - postgresql
   - sqlite3
 
 install:
@@ -14,13 +13,7 @@ before_script:
   - cp ecom_merci/.env_test ecom_merci/.env
   - ./check_migrations.sh
   - flake8 --exclude='ipython_log.py*,migrations,templates, manage.py' .
-  # - psql -c "CREATE USER ecom_merci_test WITH PASSWORD 'ecom_merci_test'" -U postgres;
-  # - psql -c "CREATE DATABASE ecom_merci_test OWNER ecom_merci_test;" -U postgres
 
 script:
   - ./manage.py migrate
   - py.test --create-db
-
-# addons:
-#     hosts:
-#         - 127.0.0.1 ecom_mercidb
