@@ -7,7 +7,7 @@ services:
   - sqlite3
 
 install:
-  - pip install -r requirements/test-requirements.txt
+  - pip install -r requirements/requirements.txt
 
 before_script:
   - cp ecom_merci/.env_test ecom_merci/.env
