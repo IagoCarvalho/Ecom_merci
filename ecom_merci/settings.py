@@ -9,7 +9,7 @@ PROJECT_DIR = Path(__file__).ancestor(2)
 
 SECRET_KEY = config('SECRET_KEY', default='')
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'gcs-trabalho-final.herokuapp.com']
 
