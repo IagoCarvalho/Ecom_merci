@@ -9,7 +9,7 @@ os: linux
 before_script:
   - cp src/ecom_merci/.env_test src/ecom_merci/.env
   - ./src/check_migrations.sh
-  - flake8 --exclude='src/ipython_log.py*,src/migrations,src/templates, src/manage.py' ./src
+  - flake8 --exclude='src/ipython_log.py*,src/migrations,src/templates, src/manage.py' .
 script:
   - ./src/manage.py migrate
   - py.test --create-db
