@@ -12,7 +12,7 @@ before_script:
 - flake8 --exclude='ipython_log.py*,migrations,templates, manage.py, node_modules' .
 script:
 - ./manage.py migrate
-- py.test --create-db
+- py.test --create-db --ignore=node_modules
 sudo: enabled
 dist: trusty
 deploy:
