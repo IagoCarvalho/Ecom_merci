@@ -1,0 +1,30 @@
+{
+  "name": "Ecom_merci",
+  "version": "1.0.0",
+  "description": "Gulp and webpack project",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-auto-reload": "^0.1.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.2",
+    "gulp-watch": "^4.3.11",
+    "run-sequence": "^2.2.0"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-plugin": "0.0.18",
+    "gulp-util": "^3.0.8",
+    "pump": "^1.0.2"
+  }
+}
