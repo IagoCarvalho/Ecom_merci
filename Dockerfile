@@ -5,5 +5,8 @@ RUN mkdir /code
 WORKDIR /code
 
 ADD . /code/
-RUN pip install -r requirements/requirements.txt -r requirements/test-requirements.txt
-RUN chmod +x boot.sh
+RUN pip install -r requirements.txt && \
+    chmod +x boot.sh && \
+    python3 setup.py install
+
+CMD ecom_merci

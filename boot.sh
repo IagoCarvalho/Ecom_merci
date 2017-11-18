@@ -16,5 +16,5 @@ until postgres_ready; do
   sleep 1
 done
 
-python manage.py migrate
-python manage.py runserver 0.0.0.0:8000
+python src/manage.py migrate
+python src/manage.py runserver 0.0.0.0:8000

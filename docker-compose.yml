@@ -1,21 +1,12 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
-    ports:
-      - "5432:5432"
-  nginx:
-    image: nginx
-    ports:
-      - "80:80"
   web:
     build: .
+    command: python3 setup.py install
+    command: ecom_merci
     command: /bin/sh ./boot.sh
     volumes:
       - .:/code
     ports:
       - "8000:8000"
-    depends_on:
-      - db
-      - nginx
