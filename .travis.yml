@@ -1,19 +1,18 @@
 language: python
 python:
-- '3.5'
+  - '3.5'
 services:
-- sqlite3
+  - sqlite3
 install:
-- pip install -r requirements.txt
+  - pip install -r requirements.txt
 os: linux
 before_script:
-- cd src
-- cp ecom_merci/.env_test ecom_merci/.env
-- ./check_migrations.sh
-- flake8 --exclude='ipython_log.py*,migrations,templates, manage.py' .
+  - cp src/ecom_merci/.env_test src/ecom_merci/.env
+  - ./src/check_migrations.sh
+  - flake8 --exclude='ipython_log.py*,migrations,templates, manage.py' .
 script:
-- ./manage.py migrate
-- py.test --create-db
+  - ./src/manage.py migrate
+  - py.test --create-db
 sudo: enabled
 dist: trusty
 deploy:
