@@ -30,5 +30,9 @@ Vagrant.configure("2") do |config|
 
       cd /vagrant/project && npm install
     SHELL
+
+	web.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbook.yml"
+    end
   end
 end
