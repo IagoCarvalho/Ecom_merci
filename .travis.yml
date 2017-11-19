@@ -15,11 +15,11 @@ before_install:
 
 before_script:
   - cp ecom_merci/.env_test ecom_merci/.env
-  - ./check_migrations.sh
-  - flake8 --exclude='ipython_log.py*,migrations,templates, manage.py, node_modules' .
 
 script:
   - docker-compose up -d
+  - docker-compose exec web ./check_migrations.sh
+  - docker-compose exec web flake8 --exclude='ipython_log.py*,migrations,templates, manage.py, node_modules' .
   - docker-compose exec web ./manage.py migrate
   - docker-compose exec web py.test --create-db --ignore=node_modules
 
