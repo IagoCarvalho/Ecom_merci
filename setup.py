@@ -33,12 +33,12 @@ setup(
     packages=find_packages('src'),
     
     install_requires=[
-        #"django"
+        #"django==1.11.4"
     ],
     
     extras_require={
         'dev': [
-            #'pytest==3.2.3'
+        #    'pytest==3.2.3'
         ],
     },
     

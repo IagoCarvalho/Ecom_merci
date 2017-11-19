@@ -1,22 +1,10 @@
-language: python
-python:
-  - '3.5'
+sudo: required
+
 services:
-  - sqlite3
-install:
-  - pip install -r requirements.txt
-os: linux
-before_script:
-  - cp src/ecom_merci/.env_test src/ecom_merci/.env
-  - ./src/check_migrations.sh
-  #- flake8 --exclude='src/ipython_log.py*,src/migrations,src/templates, src/manage.py' .
+  - docker
+
 script:
-  - ./src/manage.py migrate
-  - py.test --create-db
-sudo: enabled
-dist: trusty
-deploy:
-  provider: heroku
-  api_key:
-    secure: RPUrnqN2i03vD5xKP2aISfeDE6+zbSpZ4LIYskoGt1kyxbjeXJwQrxxnhc6/SuG2Rov6MjWad2D6MocgYvReLUFGHKmtLFy7w5rHzYtMNuLlYtE/0lJE1usgblzQQVGxwLFKw7lW02rGGxOBZOJUhQsKxVJYBT57IP2XnDdijBuqOcosgphZA+BZb4uBCB6M5WHW4fH0zMVsIFvDJf7PFuuifGw39CNHxPn07lRadk1DkEoc5nme8gMqoLfteC9dA0e6MUSqjD6TBFTkTl5fS/fC74CGEyLtgLKUVm+ydv6G5390evgPsWaG4gApftLvvlniffchjAH/9Ynk0jkoUDq+LSFOvP5o2arlvbxp0JYzcp29GJ3FRnu8SihMuGf/ZWakdx3zmzb5b33cmfO3/KbsGk/UZ4PsTWfsJ3AO/1VfYPjvFEuC/cyifMCA7+KDNQ3J/d3fTKBqSG033bh6LuC/QaDzsxWnwKA1Z/XIaR8r8ljGYYilSQozXRtb/K4koLlej5XQsaT4kvXQgEfH9Lgv6AEVYRLyHnyHmnVOU5i3ODJ6qBJufWtGfSUFa6d2zBbIGy1pvNGoti/aZe5DFCst1hqY0vlJ2ScYYtPXZ1nsvCj4A9+hdpeH85qVzqvpHjt2cTpoxkGc38TqMBWGSk1H9C636QfrNhJx+Yrh9LI=
-  app: gcs-trabalho-final
+  - docker build -t ecom_merci:latest .
+  - docker run --name ecom_merci -it ecom_merci:latest bash
+  - ecom_merci
+  - ecom_merci --version
