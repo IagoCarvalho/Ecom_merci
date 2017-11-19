@@ -5,6 +5,6 @@ services:
 
 script:
   - docker build -t ecom_merci:latest .
-  - docker run --name ecom_merci -it ecom_merci:latest bash
-  - ecom_merci
-  - ecom_merci --version
+  - docker run --name ecom_merci -itd ecom_merci:latest bash
+  - docker exec ecom_merci ecom_merci
+  - docker exec ecom_merci ecom_merci --version
