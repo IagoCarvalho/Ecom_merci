@@ -7,7 +7,7 @@ import os
 BASE_DIR = Path(__file__).ancestor(1)
 PROJECT_DIR = Path(__file__).ancestor(2)
 
-SECRET_KEY = config('SECRET_KEY', default='')
+SECRET_KEY = 'dzsr^9vj@*3+5f$p%mbi7wip2=5)8tl_w-&o=f83%&+_hv5!y@'
 
 DEBUG = True
 
