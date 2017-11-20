@@ -12,13 +12,20 @@ var gutil = require('gulp-util');
 var nano = require('gulp-cssnano');
 
 // Default
-gulp.task('default', ['watch']);
+gulp.task('default', ['sass', 'watch']);
 
 // Caminhos para fazer a build
 var paths = {
   html: "Ecom_merci/**/*.html",
   css: "Ecom_merci/**/*.css"
 };
+
+// Task pra pre compilar SASS
+gulp.task('sass', function() {
+return gulp.src('static/**/*.scss')
+.pipe(sass())
+.pipe(gulp.dest('static/css'))
+})
 
 // logs
 gulp.task('css-log', function(){
@@ -40,5 +47,5 @@ gulp.task('watch', function() {
 	gulp.watch('Ecom_merci/*.html', ['html-log']);
 });
 
-gulp.task('build', ['watch'], function() {
+gulp.task('build', ['sass', 'watch'], function() {
 });
